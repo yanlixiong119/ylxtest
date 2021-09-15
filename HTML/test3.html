@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js" ></script>
+</head>
+<body >
+
+<br/>文本框：<input id="aa" />
+<br/>文本域：<textarea id="bb"></textarea>
+<br/>单选框：
+<input name="cc" type="radio" value="1" />男
+<input name="cc" type="radio" value="2" />女
+<br/>复选框：
+<input name="dd" type="checkbox" value="1" />金
+<input name="dd" type="checkbox" value="2" />木
+<input name="dd" type="checkbox" value="3" />水
+<input name="dd" type="checkbox" value="4" />火
+<input name="dd" type="checkbox" value="5" />土
+<br/>下拉框：
+<select id="ee">
+<option value="1">青龙</option>
+<option value="2">白虎</option>
+<option value="3">朱雀</option>
+<option value="4">玄武</option>
+</select>
+
+<br/>
+<button onclick="saveTheValues()">保存-取值</button>
+<br/>
+<br/>
+<button onclick="theEchoTheAssignment()">回显-赋值</button>
+
+<script>
+function saveTheValues() {
+    console.log("文本框:" + $("#aa").val());
+    console.log("文本域:" + $("#bb").val());
+    console.log("单选框:" + $("input[name='cc']:checked").val());
+    let checkboxValue = "";
+    $("input[name='dd']:checked").each(function () {
+        checkboxValue += $(this).val() + ",";
+    });
+    console.log("复选框:" + checkboxValue);
+    console.log("下拉框:" + $("#ee").val());
+}
+
+function theEchoTheAssignment() {
+   let aa = "这是文本框";
+   let bb = "这是文本域";
+   let cc = 2;
+   let dd = "2,3,5";
+   let ee = 2;
+    $("#aa").val(aa);
+    $("#bb").val(bb);
+
+    $("input[name='cc']").each(function () {
+        if( cc == $(this).val()){
+            $(this).attr("checked",true);
+        }
+    });
+
+    let dds = dd.split(",");
+    for (let i = 0; i < dds.length ; i++) {
+        $("input[name='dd']").each(function () {
+            if( dds[i] == $(this).val()){
+                $(this).attr("checked",true);
+            }
+        });
+    }
+
+    $("#ee").val(ee);
+
+}
+
+
+</script>
+</body>
+</html>

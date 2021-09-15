@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+
+
+this job 5秒 刷新 一次
+
+<script>
+    $(function () {
+        setTimeout("test1('v1')",5000);
+    });
+
+    function test1(value) {
+        alert("value|"+value);
+        window.location.reload();
+    }
+
+</script>
+</body>
+</html>
